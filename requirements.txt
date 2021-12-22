@@ -1,0 +1,15 @@
+FundamentalAnalysis
+pandas
+pymongo
+watchdog[watchmedo]
+tabulate
+millify
+requests
+redis
+progressbar2
+mypy
+flake8
+pytest
+types-redis
+types-tabulate
+types-requests

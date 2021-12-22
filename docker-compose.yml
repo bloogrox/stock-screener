@@ -1,0 +1,28 @@
+version: "2"
+
+
+services:
+
+    mongo:
+      image: bitnami/mongodb:latest
+      environment:
+        MONGODB_USERNAME: user
+        MONGODB_PASSWORD: pass
+        MONGODB_ROOT_PASSWORD: pass
+        MONGODB_DATABASE: db
+      volumes:
+        - ./volumes/mongo:/bitnami/mongodb
+
+    redis:
+      image: redis:5-alpine
+
+    app:
+      build: .
+      image: local/fundamental-stock-screener
+      volumes:
+        - .:/app
+      env_file:
+        - ./.env
+      depends_on:
+        - mongo
+        - redis
